@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import GeneralContext from "./context/GeneralContext";
+import useCoins from "./hooks/useCoins";
+import Main from "./pages/Main";
+import Watchlist from "./pages/Watchlist";
+import Layout from "./pages/Layout";
+import Wallet from "./pages/Wallet";
+import History from "./pages/History";
+
+import axios from "axios";
 
 function App() {
+  const useCoinsHook = useCoins();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GeneralContext.Provider value={useCoinsHook}>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/watchlist" element={<Watchlist />} />
+            <Route path="/wallet" element={<Wallet />} />
+            <Route path="/history" element={<History />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </GeneralContext.Provider>
   );
 }
 

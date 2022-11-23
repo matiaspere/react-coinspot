@@ -1,0 +1,27 @@
+.Header{
+    height: 50px;
+    border: 1px solid rgb(240, 240, 240);
+    padding: 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+.Header__left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.Header__logo{
+    width: 50px;
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 20px;
+    font-size: 0.8rem;
+}
+li{
+    text-decoration: none;
+}

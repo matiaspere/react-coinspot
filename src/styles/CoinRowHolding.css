@@ -1,0 +1,135 @@
+.Wallet{
+    padding: 40px;
+    width: 80%;
+    margin: 0 auto;
+}
+.Wallet__money{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 30px;
+    justify-content: space-between;
+}
+
+.Wallet__money button{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+    font-size: 0.8rem;
+}
+.Wallet__money button img{
+    width: 15px;
+    height: 15px;
+}
+.Wallet__money button:hover{
+    cursor: pointer;
+}
+.Wallet__money-p{
+    font-size: 0.8rem;
+    color: rgb(110, 110, 110);
+}
+
+.coinRowHolding{
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 3fr 3fr 2fr 1fr;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 0.8rem;
+    /* max-width: 800px; */
+    min-width: 80%;
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 2px;
+    color: rgb(110, 110, 110);
+}
+
+.coinRowHolding__favorite{
+    cursor: pointer;
+}
+.coinRowHolding__image{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.coinRowHolding__image img{
+    width: 35px;
+    height: 35px;
+}
+
+.coinRowHolding__text{
+    min-width: 150px;
+}
+
+
+
+.holdings-title{
+    color: rgb(110, 110, 110);
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+.balance__down{
+    color: rgb(211,60,69);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.balance__up{
+    color: rgb(114, 197, 134);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.Wallet__money-money{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.percentage_down{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: rgb(211,60,69);
+    padding: 5px;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    color: white;
+}
+.percentage_down img{
+    width: 10px;
+    height: 10px;    
+}
+
+/* History */
+.coinRowHistory{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr  ;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 0.8rem;
+    /* max-width: 800px; */
+    min-width: 80%;
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 2px;
+    color: rgb(110, 110, 110);
+}
+.coinRowHistoryHeader{
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr ;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px;
+    font-size: 0.8rem;
+    /* max-width: 800px; */
+    min-width: 80%;
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 2px;
+    color: rgb(110, 110, 110);
+}
+.header{
+    border-radius: 18px 18px 0px 0px;
+    color: rgb(193, 193, 193);
+    margin: 0;
+}

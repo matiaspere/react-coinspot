@@ -1,0 +1,97 @@
+.MainMarket{
+    display: grid;
+    place-content: center;
+}
+.MainMarket__input{
+    position: relative;
+    margin: 5px 0;
+}
+.MainMarket__input img{
+    position: absolute;
+    bottom: 26px;
+    left: 12px;
+}
+.MainMarket__input input{
+    width: 400px;
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 18px;
+    padding: 10px;
+    margin: 20px 0;
+}
+.MainMarket input::placeholder{
+    padding-left: 32px;
+    color: rgb(208, 208, 208);
+    font-weight: 400;
+}
+.MainMarket input:focus{
+    border: 1px solid rgb(240, 240, 240);
+    outline: none;
+}
+
+.coinRow{
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 3fr 3fr 2fr 1fr;
+    align-items: center;
+    padding: 20px;
+    font-size: 0.8rem;
+    max-width: 800px;
+    /* width: 80%; */
+    margin: 0 auto;
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 2px;
+    color: rgb(110, 110, 110);
+}
+.coinRow__favorite{
+    cursor: pointer;
+}
+.coinRow__image{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.coinRow__image img{
+    width: 35px;
+    height: 35px;
+}
+.coinRow__addIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+.coinRow__addIcon img:hover{
+    cursor: pointer;
+}
+
+/* .coinRow__addIcon img:hover{
+    background-color: #5676F6;
+    width: 30px;
+    height: 30px;
+    border-radius: 10%;
+} */
+.coinRow__name{
+    display: flex;
+    flex-direction: column;
+}
+.coinRow__name p:nth-child(1){
+    font-weight: 500;
+}
+.coinRow__text{
+    min-width: 150px;
+}
+.header{
+    border-radius: 18px 18px 0px 0px;
+    color: rgb(193, 193, 193);
+}
+.MaiMarket__title{
+    color: rgb(110, 110, 110);
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin: 20px 0;
+}
+.down{
+    color: rgb(211,60,69);
+}
+.up{
+    color: rgb(114, 197, 134);
+}

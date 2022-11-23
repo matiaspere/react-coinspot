@@ -1,0 +1,50 @@
+.Modal{
+    background: rgba(32, 35, 41, 0.756);
+    position: fixed;
+    display: grid;
+    place-content: center;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+.Modal__template{
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+}
+.title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    margin-bottom: 20px;
+}
+.title p{
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+.title img{
+    width: 30px;
+    height: 30px;
+}
+.Modal img:hover{
+    cursor: pointer;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+.formLabel{
+    margin: 10px 0;
+}
+button{
+    margin-top: 30px;
+    padding: 15px;
+    border-radius: 4px;
+    border: none;
+    background-color: rgb(74, 108, 242);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
