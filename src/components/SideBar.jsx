@@ -9,14 +9,8 @@ import money from "../images/money.svg";
 import history from "../images/history.svg";
 
 const SideBar = () => {
-  const { balance, getLocalStorage, setHoldings, updateBalance } =
-    React.useContext(GeneralContext);
+  const { balance } = React.useContext(GeneralContext);
 
-  React.useEffect(() => {
-    const data = getLocalStorage("holdings");
-    setHoldings(data);
-    updateBalance();
-  }, []);
 
   return (
     <div className="SideBar">

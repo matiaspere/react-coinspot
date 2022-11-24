@@ -15,12 +15,10 @@ const Header = () => {
         },
       });
       const newData = res.data.data;
-
       setData(newData);
     }
     fetchData();
   }, []);
-  console.log(marketData);
 
   return (
     <div className="Header">

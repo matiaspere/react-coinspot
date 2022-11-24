@@ -1,26 +1,25 @@
 import React from "react";
 import { useContext, useState } from "react";
-import axios from "axios";
 import GeneralContext from "../context/GeneralContext";
 import CoinRow from "../components/CoinRow";
 import "../styles/CoinRow.css";
-import searchIcon from "../images/search.svg";
-import Modal from "../components/Modal";
+import Input from "../components/Input";
+import { Pagination } from "@mui/material";
 
-const Main = () => {
-  const { coins, setCoins, fetchCoins } = useContext(GeneralContext);
+const Main = ({setPage, page}) => {
+  const { coins, filterCoinSearch, updateBalance } =
+    useContext(GeneralContext);
 
-  React.useEffect(()=>{
-    fetchCoins();
-  },[])
+  const searchedCoin = filterCoinSearch(coins);
+
+  const handleChange = (page) => {
+    setPage(page)
+  }
 
   return (
     <div className="MainMarket">
       <p className="MaiMarket__title">Cryptocurrency Prices by Market Cap</p>
-      <div className="MainMarket__input">
-        <img src={searchIcon} />
-        <input placeholder="asdsa" />
-      </div>
+      <Input />
       <div className="coinRow header">
         <div></div>
         <p>#</p>
@@ -32,7 +31,7 @@ const Main = () => {
         <p className="coinRow__text">Change % (24H)</p>
         <p className="coinRow__text">Market Cap</p>
       </div>
-      {coins.map((coin) => (
+      {searchedCoin.map((coin) => (
         <CoinRow
           id={coin.id}
           key={coin.id}
@@ -46,7 +45,7 @@ const Main = () => {
           watchlist={coin.watchlist}
         />
       ))}
-
+            <Pagination onChange={(e) => handleChange(e.target.textContent)} count={100} sx={{marginTop:"20px"}}/>
     </div>
   );
 };

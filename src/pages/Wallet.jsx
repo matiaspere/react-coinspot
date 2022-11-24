@@ -4,23 +4,31 @@ import "../styles/CoinRowHolding.css";
 import Modal from "../components/Modal";
 import CoinRowHolding from "../components/CoinRowHolding";
 import addWhite from "../images/addWhite.svg";
-import down from '../images/down.svg';
-import up from '../images/up.svg';
+import down from "../images/down.svg";
+import up from "../images/up.svg";
+import roundNumber from "../utils/roundNumber";
 
-const Wallet = () => {
-  const { holdings, coins, balance, invested, updateBalance } =
-    React.useContext(GeneralContext);
+const Wallet = ({ monedas }) => {
+  const {
+    holdings,
+    setHoldings,
+    coins,
+    balance,
+    invested,
+    getLocalStorage,
+    updateBalance,
+    fetchCoins,
+    history,
+  } = React.useContext(GeneralContext);
   const [toggle, setToggle] = React.useState(false);
 
 
   React.useEffect(() => {
     updateBalance()
-  }, [holdings]);
+  }, [])
 
   let classname = Math.floor(balance) > Math.floor(invested);
-  let percentage = ((Math.floor(balance) / Math.floor(invested)) * 100).toFixed(
-    2
-  );
+  let percentage = roundNumber((Math.floor(balance) / Math.floor(invested) * 100), 2);
 
   return (
     <div className="Wallet">
@@ -32,8 +40,8 @@ const Wallet = () => {
               ${balance}
             </p>
             <div className={classname ? "percentage_up" : "percentage_down"}>
-              <img src={classname ? up : down}/>
-              <p>{classname ? percentage : 100 - percentage}%</p>
+              <img src={classname ? up : down} />
+              <p>{classname ? percentage : roundNumber(100 - percentage, 2)}%</p>
             </div>
           </div>
           {/* <p className="Wallet__money-p">invested: {invested}</p> */}
@@ -50,7 +58,8 @@ const Wallet = () => {
           <p className="holdings-title">Your holdings</p>
           <div className="coinRowHolding header">
             <p>Asset</p>
-            <div className="coinRowHolding__image"></div>
+            <div></div>
+            {/* <div className="coinRowHolding__image"></div> */}
             <div>
               <p>Amount</p>
             </div>

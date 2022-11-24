@@ -6,9 +6,9 @@ import "../styles/Modal.css";
 import closeIcon from "../images/close.svg";
 
 const Modal = ({ coins, setToggle }) => {
-  const { holdings, setHoldings } = React.useContext(GeneralContext);
+  const { history, setHistory, holdings, setHoldings } = React.useContext(GeneralContext);
   const [options, setOptions] = useState([]);
-  const [value, setValue] = React.useState(options[0]);
+  const [value, setValue] = React.useState(null);
   const [inputValue, setInputValue] = React.useState("");
   const form = React.useRef(null);
 
@@ -29,17 +29,43 @@ const Modal = ({ coins, setToggle }) => {
     const formData = new FormData(form.current);
     const coinName = inputValue;
     const coinInfo = coins.filter((i) => i.name === coinName);
+    let quantity = formData.get("quantity");
+    let price = formData.get("price")
 
-    const data = {
+    const dataHistory = {
       coinInfo: coinInfo,
-      quantity: formData.get("quantity"),
-      price: formData.get("price"),
+      quantity: quantity,
+      price: price,
     };
-    const newHoldings = [...holdings];
-    newHoldings.push(data);
-    setHoldings(newHoldings);
-    setToggle(false);
+
+    const dataHolding = {
+      coinInfo: coinInfo,
+      quantity: [quantity],
+      price: [price],
+    };
+
+    // history
+    let newHistory = [...history];
+    newHistory.unshift(dataHistory);
+    console.log(newHistory)
+    setHistory(newHistory);
+    localStorage.setItem("history", JSON.stringify(newHistory));
+
+    // holdings
+    let newHoldings = [...holdings];
+    const alreadyExists = newHoldings.some((i) => i.coinInfo[0].name === coinName);
+    if (alreadyExists){
+      const index = newHoldings.findIndex((i) => i.coinInfo[0].name === coinName);
+      newHoldings[index].quantity.push(quantity);
+      newHoldings[index].price.push(price);
+      console.log(newHoldings[index])
+    } else {
+      newHoldings.push(dataHolding);
+      setHoldings(newHoldings);
+    }
     localStorage.setItem("holdings", JSON.stringify(newHoldings));
+
+    setToggle(false);
   };
 
   return (

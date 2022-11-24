@@ -15,7 +15,7 @@ const CoinRowHistory = (props) => {
         <p>{ticker}</p>
       </div>
       <p className="coinRowHolding__text">{props.quantity}</p>
-      <p className="coinRowHolding__text">{props.price}</p>
+      <p className="coinRowHolding__text">${props.buyPrice}</p>
       {/* <div className="coinRow__addIcon" ><img onClick={() => {props.setToggle(true)}} src={addIcon}/></div> */}
     </div>
   );

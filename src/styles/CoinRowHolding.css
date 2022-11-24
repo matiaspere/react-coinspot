@@ -33,7 +33,7 @@
 
 .coinRowHolding{
     display: grid;
-    grid-template-columns: 1fr 2fr 2fr 3fr 3fr 2fr 1fr;
+    grid-template-columns: 2fr 2fr 2fr 2fr 2fr 3fr;
     align-items: center;
     margin: 0 auto;
     padding: 20px;
@@ -132,4 +132,5 @@
     border-radius: 18px 18px 0px 0px;
     color: rgb(193, 193, 193);
     margin: 0;
+    margin-top: 20px;
 }

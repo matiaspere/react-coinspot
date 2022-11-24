@@ -12,7 +12,10 @@ const CoinRowHolding = (props) => {
     classname = "coinRow__text up"
   }
 
-  let value = props.quantity*props.price
+  let value = 0
+  for (let k=0; k< props.quantity.length; k++) {
+    value = value + props.quantity[k] * props.price
+  }
   
   return (
     <div className="coinRowHolding">
@@ -24,9 +27,9 @@ const CoinRowHolding = (props) => {
         <p>{ticker}</p>
       </div>
       <p className="coinRowHolding__text">{props.quantity}</p>
-      <p className="coinRowHolding__text">{value}</p>
+      <p className="coinRowHolding__text">${value}</p>
       <p className={classname}>{percentage}%</p>
-      {/* <div className="coinRow__addIcon" ><img onClick={() => {props.setToggle(true)}} src={addIcon}/></div> */}
+      <div>dsa</div>
     </div>
   );
 };

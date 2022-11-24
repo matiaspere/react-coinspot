@@ -45,7 +45,7 @@ const CoinRow = (props) => {
       </div>
       <p className="coinRow__text">${props.price}</p>
       <p className={classname}>{percentage}%</p>
-      <p className="coinRow__text">{props.marketCap}</p>
+      <p className="coinRow__text">${props.marketCap}</p>
       {/* <div className="coinRow__addIcon" ><img onClick={() => {props.setToggle(true)}} src={addIcon}/></div> */}
     </div>
   );
