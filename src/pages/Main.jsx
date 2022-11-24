@@ -16,6 +16,7 @@ const Main = ({setPage, page}) => {
     setPage(page)
   }
 
+
   return (
     <div className="MainMarket">
       <p className="MaiMarket__title">Cryptocurrency Prices by Market Cap</p>

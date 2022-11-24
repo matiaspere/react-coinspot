@@ -25,3 +25,7 @@ ul{
 li{
     text-decoration: none;
 }
+ul li span{
+    color: rgb(86, 118, 246);
+    font-weight: 500;
+}

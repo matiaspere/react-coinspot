@@ -22,12 +22,13 @@ const Wallet = ({ monedas }) => {
   } = React.useContext(GeneralContext);
   const [toggle, setToggle] = React.useState(false);
 
-
+  updateBalance();
+  
   React.useEffect(() => {
     updateBalance()
-  }, [])
+  }, [history])
 
-  let classname = Math.floor(balance) > Math.floor(invested);
+  let classname = Math.floor(balance) >= Math.floor(invested);
   let percentage = roundNumber((Math.floor(balance) / Math.floor(invested) * 100), 2);
 
   return (
@@ -41,7 +42,7 @@ const Wallet = ({ monedas }) => {
             </p>
             <div className={classname ? "percentage_up" : "percentage_down"}>
               <img src={classname ? up : down} />
-              <p>{classname ? percentage : roundNumber(100 - percentage, 2)}%</p>
+              <p>{classname ? roundNumber(percentage - 100, 2) : roundNumber(100 - percentage, 2)}%</p>
             </div>
           </div>
           {/* <p className="Wallet__money-p">invested: {invested}</p> */}
@@ -57,8 +58,8 @@ const Wallet = ({ monedas }) => {
         <>
           <p className="holdings-title">Your holdings</p>
           <div className="coinRowHolding header">
-            <p>Asset</p>
-            <div></div>
+            <p className="coinRowHolding__image">Asset</p>
+            <div className="coinRowHolding__name"></div>
             {/* <div className="coinRowHolding__image"></div> */}
             <div>
               <p>Amount</p>
@@ -69,17 +70,18 @@ const Wallet = ({ monedas }) => {
           </div>
           {holdings.map((i) => (
             <CoinRowHolding
-              name={i.coinInfo[0].name}
-              id={i.coinInfo[0].id}
-              key={i.coinInfo[0].id}
-              rank={i.coinInfo[0].market_cap_rank}
-              image={i.coinInfo[0].image}
-              symbol={i.coinInfo[0].symbol}
-              price={i.coinInfo[0].current_price}
-              marketCap={i.coinInfo[0].market_cap}
-              priceChange24={i.coinInfo[0].price_change_percentage_24h}
+              name={i.coinInfo[0]?.name}
+              id={i.coinInfo[0]?.id}
+              key={i.coinInfo[0]?.id}
+              rank={i.coinInfo[0]?.market_cap_rank}
+              image={i.coinInfo[0]?.image}
+              symbol={i.coinInfo[0]?.symbol}
+              price={i.coinInfo[0]?.current_price}
+              marketCap={i.coinInfo[0]?.market_cap}
+              priceChange24={i.coinInfo[0]?.price_change_percentage_24h}
               quantity={i.quantity}
               buyPrice={i.price}
+              balance={balance}
             />
           ))}
         </>

@@ -6,19 +6,20 @@ import axios from "axios";
 const Header = () => {
   const [marketData, setData] = React.useState({});
 
+  
+  async function fetchData() {
+    const api = "https://api.coingecko.com/api/v3/global";
+    const res = await axios.get(api, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    });
+    const newData = res.data;
+    setData(newData);
+  }
   React.useEffect(() => {
-    async function fetchData() {
-      const api = "https://api.coingecko.com/api/v3/global";
-      const res = await axios.get(api, {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      });
-      const newData = res.data.data;
-      setData(newData);
-    }
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   return (
     <div className="Header">
@@ -28,12 +29,12 @@ const Header = () => {
       </div>
 
       <ul>
-        <li>Cryptos: {marketData.active_cryptocurrencies}</li>
-        <li>Exchanges: {marketData.markets}</li>
-        <li>ICOS: {marketData.ongoing_icos}</li>
+        <li><span>Cryptos:</span> {marketData.data?.active_cryptocurrencies}</li>
+        <li><span>Exchanges:</span> {marketData.data?.markets}</li>
+        <li><span>ICOS:</span> {marketData.data?.ongoing_icos}</li>
         {/* <li>Change % (24h): {percentage}%</li> */}
-        {/* <li>BTC Dominance: {data.market_cap_percentage.btc.toFixed(2)}% </li>
-        <li>ETH Dominance: {data.market_cap_percentage.eth.toFixed(2)}% </li> */}
+        <li><span>BTC Dominance:</span> {marketData.data?.market_cap_percentage.btc.toFixed(2)}% </li>
+        <li><span>ETH Dominance:</span> {marketData.data?.market_cap_percentage.eth.toFixed(2)}% </li>
       </ul>
     </div>
   );

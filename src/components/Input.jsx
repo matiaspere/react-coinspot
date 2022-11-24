@@ -7,8 +7,10 @@ const Input = () => {
   const { handleSearch } = React.useContext(GeneralContext);
   return (
     <div className="MainMarket__input">
-      <img src={searchIcon} />
-      <input placeholder="Search for a coin" onChange={handleSearch} />
+      <form>
+        <img src={searchIcon} />
+        <input placeholder="Search for a coin" onChange={handleSearch} />
+      </form>
     </div>
   );
 };

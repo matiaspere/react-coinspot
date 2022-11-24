@@ -11,36 +11,41 @@ import History from "./pages/History";
 import axios from "axios";
 
 function App() {
+  const [page, setPage] = React.useState(1);
   const useCoinsHook = useCoins();
   const {
+    coins,
     setCoins,
     getLocalStorage,
     setHoldings,
     setHistory,
-    updateBalance,
-    coins,
-    history,
+    totalCoins,
+    setTotalCoins,
   } = useCoinsHook;
 
-  const [page, setPage] = React.useState(1);
-
-  async function fetchCoins() {
+  async function fetchCoins(perPage, page, type) {
     try {
-      const api = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=${page}&sparkline=false`;
+      const api = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${perPage}&page=${page}&sparkline=false`;
       const res = await axios.get(api, {
         headers: {
           "Access-Control-Allow-Origin": "*",
         },
       });
-      setCoins(res.data);
+      switch (type) {
+        case "coins":
+          setCoins(res.data);
+        case "totalCoins":
+          setTotalCoins(res.data);
+        default:
+          setTotalCoins(res.data);
+      }
     } catch (error) {
       console.error(error);
     }
   }
 
-  // console.log(fetchin().then((datos) => setCoins(datos)))
   React.useEffect(() => {
-    fetchCoins();
+    fetchCoins(100, 1, 'totalCoins');
     const dataHoldings = getLocalStorage("holdings");
     if (dataHoldings) {
       setHoldings(dataHoldings);
@@ -53,7 +58,7 @@ function App() {
   }, []);
 
   React.useEffect(() => {
-    fetchCoins(page);
+    fetchCoins(10, page, 'coins');
   }, [page]);
 
   return (

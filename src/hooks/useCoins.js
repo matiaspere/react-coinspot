@@ -10,7 +10,7 @@ const useCoins = () => {
   const [balance, setBalance] = useState(0);
   const [invested, setInvested] = useState(0);
   const [search, setSearch] = useState("");
-
+  const [totalCoins, setTotalCoins] = useState([]);
 
   const addToWatchlist = (id) => {
     let exists = watchlist.some((i) => i.id === id);
@@ -36,11 +36,11 @@ const useCoins = () => {
   };
 
   const updateBalance = () => {
-    console.log('uptadebalance coins:', coins, history)
     let totalNow = 0;
+    console.log(coins)
     for (let i = 0; i < history.length; i++) {
       const coin = coins.filter((k) => k.id === history[i].coinInfo[0].id);
-      totalNow = totalNow + coin[0].current_price * history[i].quantity;
+      totalNow = totalNow + coin[0]?.current_price * history[i].quantity;
     }
     setBalance(totalNow.toFixed(2));
 
@@ -90,6 +90,8 @@ const useCoins = () => {
     filterCoinSearch,
     holdings,
     setHoldings,
+    totalCoins,
+    setTotalCoins,
   };
 };
 export default useCoins;

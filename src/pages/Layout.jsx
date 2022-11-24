@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import "../styles/Layout.css";
 
-const Layout = ({ children }) => {
+const Layout = ({ children}) => {
   return (
     <div className="Layout">
       <div className="Layout__header">
