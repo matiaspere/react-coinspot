@@ -5,22 +5,31 @@ import CoinRow from "../components/CoinRow";
 import "../styles/CoinRow.css";
 import Input from "../components/Input";
 import { Pagination } from "@mui/material";
+import CoinSelect from '../components/CoinSelect';
 
-const Main = ({setPage, page}) => {
-  const { coins, filterCoinSearch, updateBalance } =
-    useContext(GeneralContext);
+
+const Main = ({ setPage, page }) => {
+  const { coins, filterCoinSearch, totalCoins } = useContext(GeneralContext);
+  const [value, setValue] = React.useState(null);
+  const [inputValue, setInputValue] = React.useState("");
 
   const searchedCoin = filterCoinSearch(coins);
 
   const handleChange = (page) => {
-    setPage(page)
-  }
-
+    setPage(page);
+  };
 
   return (
     <div className="MainMarket">
       <p className="MaiMarket__title">Cryptocurrency Prices by Market Cap</p>
-      <Input />
+      {/* <Input /> */}
+      <CoinSelect
+            totalCoins={totalCoins}
+            value={value}
+            setValue={setValue}
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+          />
       <div className="coinRow header">
         <div></div>
         <p>#</p>
@@ -46,7 +55,11 @@ const Main = ({setPage, page}) => {
           watchlist={coin.watchlist}
         />
       ))}
-            <Pagination onChange={(e) => handleChange(e.target.textContent)} count={100} sx={{marginTop:"20px"}}/>
+      <Pagination
+        onChange={(e) => handleChange(e.target.textContent)}
+        count={100}
+        sx={{ marginTop: "20px" }}
+      />
     </div>
   );
 };

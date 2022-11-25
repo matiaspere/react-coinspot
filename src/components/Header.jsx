@@ -28,7 +28,7 @@ const Header = () => {
         <h2>Coinspot</h2>
       </div>
 
-      <ul>
+      <ul className="Header__ul">
         <li><span>Cryptos:</span> {marketData.data?.active_cryptocurrencies}</li>
         <li><span>Exchanges:</span> {marketData.data?.markets}</li>
         <li><span>ICOS:</span> {marketData.data?.ongoing_icos}</li>

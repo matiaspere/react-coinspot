@@ -8,16 +8,13 @@ import down from "../images/down.svg";
 import up from "../images/up.svg";
 import roundNumber from "../utils/roundNumber";
 
-const Wallet = ({ monedas }) => {
+const Wallet = () => {
   const {
     holdings,
-    setHoldings,
-    coins,
+    totalCoins,
     balance,
     invested,
-    getLocalStorage,
     updateBalance,
-    fetchCoins,
     history,
   } = React.useContext(GeneralContext);
   const [toggle, setToggle] = React.useState(false);
@@ -88,7 +85,7 @@ const Wallet = ({ monedas }) => {
       ) : (
         <p>You don't have Cryptos in your portfolio</p>
       )}
-      {toggle && <Modal coins={coins} setToggle={setToggle} />}
+      {toggle && <Modal totalCoins={totalCoins} setToggle={setToggle} />}
     </div>
   );
 };

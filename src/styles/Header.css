@@ -15,7 +15,7 @@
 .Header__logo{
     width: 50px;
 }
-ul{
+.Header__ul{
     display: flex;
     flex-direction: row;
     list-style: none;

@@ -37,16 +37,15 @@ const useCoins = () => {
 
   const updateBalance = () => {
     let totalNow = 0;
-    console.log(coins)
     for (let i = 0; i < history.length; i++) {
-      const coin = coins.filter((k) => k.id === history[i].coinInfo[0].id);
+      const coin = totalCoins?.filter((k) => k.id === history[i].coinInfo[0].id);
       totalNow = totalNow + coin[0]?.current_price * history[i].quantity;
     }
     setBalance(totalNow.toFixed(2));
 
     let totalInvested = 0;
     for (let i = 0; i < history.length; i++) {
-      const coin = coins.filter((k) => k.id === history[i].coinInfo[0].id);
+      const coin = totalCoins?.filter((k) => k.id === history[i].coinInfo[0].id);
       totalInvested = totalInvested + history[i].price * history[i].quantity;
     }
     setInvested(totalInvested.toFixed(2));

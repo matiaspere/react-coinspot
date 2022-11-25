@@ -1,36 +1,24 @@
 import React from "react";
 import GeneralContext from "../context/GeneralContext";
-import { useState } from "react";
-import { Autocomplete, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import "../styles/Modal.css";
 import closeIcon from "../images/close.svg";
+import CoinSelect from "../components/CoinSelect";
 
-const Modal = ({ coins, setToggle }) => {
-  const { history, setHistory, holdings, setHoldings } = React.useContext(GeneralContext);
-  const [options, setOptions] = useState([]);
+const Modal = ({ totalCoins, setToggle }) => {
+  const { history, setHistory, holdings, setHoldings } =
+    React.useContext(GeneralContext);
   const [value, setValue] = React.useState(null);
   const [inputValue, setInputValue] = React.useState("");
   const form = React.useRef(null);
-
-  function getNames(data) {
-    let arr = [];
-    data.map((i) => {
-      arr.push(i.name);
-    });
-    setOptions(arr);
-  }
-
-  React.useEffect(() => {
-    getNames(coins);
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(form.current);
     const coinName = inputValue;
-    const coinInfo = coins.filter((i) => i.name === coinName);
+    const coinInfo = totalCoins.filter((i) => i.name === coinName);
     let quantity = formData.get("quantity");
-    let price = formData.get("price")
+    let price = formData.get("price");
 
     const dataHistory = {
       coinInfo: coinInfo,
@@ -47,18 +35,22 @@ const Modal = ({ coins, setToggle }) => {
     // history
     let newHistory = [...history];
     newHistory.unshift(dataHistory);
-    console.log(newHistory)
+    console.log(newHistory);
     setHistory(newHistory);
     localStorage.setItem("history", JSON.stringify(newHistory));
 
     // holdings
     let newHoldings = [...holdings];
-    const alreadyExists = newHoldings.some((i) => i.coinInfo[0].name === coinName);
-    if (alreadyExists){
-      const index = newHoldings.findIndex((i) => i.coinInfo[0].name === coinName);
+    const alreadyExists = newHoldings.some(
+      (i) => i.coinInfo[0].name === coinName
+    );
+    if (alreadyExists) {
+      const index = newHoldings.findIndex(
+        (i) => i.coinInfo[0].name === coinName
+      );
       newHoldings[index].quantity.push(quantity);
       newHoldings[index].price.push(price);
-      console.log(newHoldings[index])
+      console.log(newHoldings[index]);
     } else {
       newHoldings.push(dataHolding);
       setHoldings(newHoldings);
@@ -76,20 +68,12 @@ const Modal = ({ coins, setToggle }) => {
           <img src={closeIcon} onClick={() => setToggle(false)} />
         </div>
         <form ref={form} onSubmit={handleSubmit}>
-          <Autocomplete
+          <CoinSelect
+            totalCoins={totalCoins}
             value={value}
-            onChange={(_, newValue) => {
-              setValue(newValue);
-            }}
+            setValue={setValue}
             inputValue={inputValue}
-            onInputChange={(_, newInputValue) => {
-              setInputValue(newInputValue);
-            }}
-            disablePortal
-            id="combo-box-demo"
-            options={options}
-            sx={{ width: 400 }}
-            renderInput={(params) => <TextField {...params} label="Coin " />}
+            setInputValue={setInputValue}
           />
           <label className="formLabel" for="quantity">
             Quantity

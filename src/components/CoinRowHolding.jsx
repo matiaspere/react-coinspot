@@ -32,7 +32,7 @@ const CoinRowHolding = (props) => {
         <p>{ticker}</p>
       </div>
       <p >{totalQuantity}</p>
-      <p className="coinRowHolding__text">${valueUsd}</p>
+      <p className="coinRowHolding__text">${valueUsd.toFixed(2)}</p>
       <p className={classname}>{percentage}%</p>
       <div>
         <LinearProgress

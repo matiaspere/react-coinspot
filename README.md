@@ -1,1 +1,0 @@
-https://dribbble.com/shots/18491425-Defispot-Crypto-Portfolio-Wallet
