@@ -40,7 +40,9 @@
     font-size: 0.8rem;
     /* max-width: 800px; */
     min-width: 80%;
-    border: 1px solid rgb(240, 240, 240);
+    border-bottom: 1px solid rgb(195, 195, 195);
+    border-left: 1px solid rgb(195, 195, 195);
+    border-right: 1px solid rgb(195, 195, 195);
     border-radius: 2px;
     color: rgb(110, 110, 110);
 }
@@ -126,7 +128,9 @@
     font-size: 0.8rem;
     /* max-width: 800px; */
     min-width: 80%;
-    border: 1px solid rgb(240, 240, 240);
+    border-bottom: 1px solid rgb(195, 195, 195);
+    border-left: 1px solid rgb(195, 195, 195);
+    border-right: 1px solid rgb(195, 195, 195);
     border-radius: 2px;
     color: rgb(110, 110, 110);
 }
@@ -139,13 +143,15 @@
     font-size: 0.8rem;
     /* max-width: 800px; */
     min-width: 80%;
-    border: 1px solid rgb(240, 240, 240);
+    border-bottom: 1px solid rgb(195, 195, 195);
+    border-left: 1px solid rgb(195, 195, 195);
+    border-right: 1px solid rgb(195, 195, 195);
     border-radius: 2px;
     color: rgb(110, 110, 110);
 }
 .header{
-    border-radius: 18px 18px 0px 0px;
-    color: rgb(193, 193, 193);
+    border-radius: 5px 5px 0px 0px;
+    color: rgb(195, 195, 195);
     margin: 0;
     margin-top: 20px;
 }

@@ -37,8 +37,10 @@
     max-width: 800px;
     /* width: 80%; */
     margin: 0 auto;
-    border: 1px solid rgb(240, 240, 240);
-    border-radius: 2px;
+    /* border: 1px solid rgb(240, 240, 240); */
+    border-bottom: 1px solid rgb(195, 195, 195);
+    border-left: 1px solid rgb(195, 195, 195);
+    border-right: 1px solid rgb(195, 195, 195);
     color: rgb(110, 110, 110);
 }
 .coinRow__favorite{
@@ -80,8 +82,9 @@
     min-width: 150px;
 }
 .header{
-    border-radius: 18px 18px 0px 0px;
+    border-radius: 4px 4px 0px 0px;
     color: rgb(193, 193, 193);
+    border-top: 1px solid rgb(195, 195, 195);
 }
 .MaiMarket__title{
     color: rgb(110, 110, 110);

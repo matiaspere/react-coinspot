@@ -55,13 +55,12 @@ const useCoins = () => {
     setSearch(e.target.value);
   };
 
-  const filterCoinSearch = (arr) => {
+  const filterCoinSearch = (coins, totalCoins) => {
     let searchedCoin = [];
     if (search < 1) {
-      searchedCoin = arr;
+      searchedCoin = coins;
     } else {
-      searchedCoin = arr.filter((coin) => {
-        console.log(arr);
+      searchedCoin = totalCoins.filter((coin) => {
         const coinName = coin.name.toLowerCase();
         const searchName = search.toLowerCase();
         return coinName.includes(searchName);
@@ -91,6 +90,7 @@ const useCoins = () => {
     setHoldings,
     totalCoins,
     setTotalCoins,
+    setSearch
   };
 };
 export default useCoins;

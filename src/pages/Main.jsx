@@ -5,18 +5,25 @@ import CoinRow from "../components/CoinRow";
 import "../styles/CoinRow.css";
 import Input from "../components/Input";
 import { Pagination } from "@mui/material";
-import CoinSelect from '../components/CoinSelect';
+import CoinSelect from "../components/CoinSelect";
 
-
-const Main = ({ setPage, page }) => {
-  const { coins, filterCoinSearch, totalCoins } = useContext(GeneralContext);
+const Main = ({ setPage }) => {
+  const { coins, filterCoinSearch, totalCoins, setSearch, search } =
+    useContext(GeneralContext);
   const [value, setValue] = React.useState(null);
   const [inputValue, setInputValue] = React.useState("");
 
-  const searchedCoin = filterCoinSearch(coins);
+  const searchedCoin = filterCoinSearch(coins, totalCoins);
 
   const handleChange = (page) => {
     setPage(page);
+  };
+  const handleSearch = (e) => {
+    if (e === null) {
+      setSearch("");
+    } else {
+      setSearch(e.name);
+    }
   };
 
   return (
@@ -24,12 +31,13 @@ const Main = ({ setPage, page }) => {
       <p className="MaiMarket__title">Cryptocurrency Prices by Market Cap</p>
       {/* <Input /> */}
       <CoinSelect
-            totalCoins={totalCoins}
-            value={value}
-            setValue={setValue}
-            inputValue={inputValue}
-            setInputValue={setInputValue}
-          />
+        totalCoins={totalCoins}
+        value={value}
+        setValue={setValue}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+        handleSearch={handleSearch}
+      />
       <div className="coinRow header">
         <div></div>
         <p>#</p>
@@ -55,11 +63,15 @@ const Main = ({ setPage, page }) => {
           watchlist={coin.watchlist}
         />
       ))}
-      <Pagination
-        onChange={(e) => handleChange(e.target.textContent)}
-        count={100}
-        sx={{ marginTop: "20px" }}
-      />
+      {!search && (
+        <Pagination
+          variant="outlined"
+          shape="rounded"
+          onChange={(e) => handleChange(e.target.textContent)}
+          count={100}
+          sx={{ marginTop: "20px" }}
+        />
+      )}
     </div>
   );
 };

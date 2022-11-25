@@ -67,7 +67,6 @@ function App() {
     fetchCoins(page);
   }, [page]);
 
-  console.log('TOTAL COINS',totalCoins)
   return (
     <GeneralContext.Provider value={useCoinsHook}>
       <BrowserRouter>

@@ -9,13 +9,15 @@ export default function CoinSelect({
   setValue,
   inputValue,
   setInputValue,
+  handleSearch,
 }) {
-  console.log(totalCoins)
   return (
     <Autocomplete
       value={value}
       onChange={(_, newValue) => {
         setValue(newValue);
+        handleSearch(newValue);
+        console.log('cambio el value a :', newValue)
       }}
       inputValue={inputValue}
       onInputChange={(_, newInputValue) => {
