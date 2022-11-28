@@ -77,6 +77,13 @@ const useCoins = () => {
     return searchedCoin;
   };
 
+  const fetchHistoricData = async (id, days) => {
+    const { data } = await axios.get(
+      `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}`
+    );
+    return data.prices;
+  };
+
   return {
     coins,
     setCoins,
@@ -99,6 +106,7 @@ const useCoins = () => {
     totalCoins,
     setTotalCoins,
     setSearch,
+    fetchHistoricData
   };
 };
 export default useCoins;

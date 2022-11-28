@@ -12,12 +12,14 @@ import SelectButton from "../components/SelectButton";
 import back from "../images/back.svg";
 import down from "../images/down.svg";
 import up from "../images/up.svg";
+import useFetchHistoricalData from "../hooks/useFetchHistoricalData";
 
 const CoinInfo = () => {
   const { totalCoins } = React.useContext(GeneralContext);
   const { id } = useParams();
-  const [historicData, setHistoricData] = React.useState();
   const [days, setDays] = React.useState(1);
+
+  const historicData = useFetchHistoricalData(id, days)
 
   const chartDays = [
     {
@@ -38,19 +40,7 @@ const CoinInfo = () => {
     },
   ];
 
-  const fetchHistoricData = async () => {
-    const { data } = await axios.get(
-      `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}`
-    );
-    setHistoricData(data.prices);
-  };
-
-  React.useEffect(() => {
-    fetchHistoricData();
-  }, [days]);
-
   const coin = totalCoins.filter((i) => i.id === id);
-  console.log(coin);
   return (
     <div className="CoinInfo">
       <div className="CoinInfo__header">

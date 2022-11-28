@@ -30,7 +30,7 @@
 
 .coinRow{
     display: grid;
-    grid-template-columns: 1fr 1fr 2fr 3fr 3fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr 2fr 3fr 3fr 2fr 1fr 2fr;
     align-items: center;
     padding: 20px;
     font-size: 0.8rem;

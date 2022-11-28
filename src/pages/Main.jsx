@@ -48,6 +48,7 @@ const Main = ({ setPage }) => {
         <p className="coinRow__text">Price</p>
         <p className="coinRow__text">Change % (24H)</p>
         <p className="coinRow__text">Market Cap</p>
+        <div>Last 7 Days</div>
       </div>
       {searchedCoin.map((coin) => (
         <CoinRow
