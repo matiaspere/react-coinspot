@@ -7,6 +7,7 @@ import Watchlist from "./pages/Watchlist";
 import Layout from "./pages/Layout";
 import Wallet from "./pages/Wallet";
 import History from "./pages/History";
+import CoinInfo from "./pages/CoinInfo";
 
 import axios from "axios";
 
@@ -21,6 +22,8 @@ function App() {
     setHistory,
     totalCoins,
     setTotalCoins,
+    updateBalance,
+    history
   } = useCoinsHook;
 
   async function fetchCoins(page) {
@@ -67,6 +70,10 @@ function App() {
     fetchCoins(page);
   }, [page]);
 
+  React.useEffect(() => {
+    updateBalance();
+  }, [history]);
+
   return (
     <GeneralContext.Provider value={useCoinsHook}>
       <BrowserRouter>
@@ -76,6 +83,7 @@ function App() {
             <Route path="/watchlist" element={<Watchlist />} />
             <Route path="/wallet" element={<Wallet />} />
             <Route path="/history" element={<History />} />
+            <Route path="/coin/:id" element={<CoinInfo />} />
           </Routes>
         </Layout>
       </BrowserRouter>

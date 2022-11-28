@@ -1,0 +1,103 @@
+.CoinInfo{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+}
+/*  */
+.CoinInfo__header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:10px;
+    margin: 20px 0;
+}
+.CoinInfo__header img:nth-child(1){
+    width: 20px;
+    height: 20px;
+}
+.CoinInfo__header img:nth-child(2){
+    width: 60px;
+    height: 60px;
+}
+.CoinInfo__header p:nth-child(1){
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+.CoinInfo__header p:nth-child(2){
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: rgb(157, 157, 163);
+}
+/*  */
+.CoinIfo__price{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; 
+}
+.CoinInfo__price-price{
+    font-size: 1.8rem;
+    font-family: 600;
+    margin-bottom: 10px;
+}
+/* buttons */
+.SelectButton{
+    background-color: rgb(239, 243, 244);
+    color: rgb(157, 157, 163);
+    width: 50px;
+    font-size: 0.6rem;
+    margin: 0 10px;
+    text-align: center;
+    height: 30px;
+    padding: 0;
+}
+.SelectButton:hover{
+    cursor: pointer;
+}
+.SelectButton--selected{
+    background-color: rgb(239, 243, 244);
+    color: rgb(157, 157, 163);
+    width: 50px;
+    font-size: 0.6rem;
+    background-color: #4276FA;
+    color: white;
+    text-align: center;
+    height: 30px;
+    margin: 0 10px;
+    padding: 0;
+}
+/*  */
+.CoinInfo__footer{
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr 1fr;
+    border: 1px solid rgb(195, 195, 195);
+    border-radius: 4px;
+    color: rgb(110, 110, 110);
+}
+.CoinInfo__footer div{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    border-right: 1px solid rgb(195, 195, 195);
+}
+.CoinInfo__footer div p:nth-child(1){
+    font-size: 0.8rem;
+}
+.CoinInfo__footer div p:nth-child(2){
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: rgb(32, 32, 32);
+}
+.CoinInfo__footer div p:nth-child(2) span{
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: rgb(110, 110, 110);
+    /* margin-left: 40px; */
+}
+.CoinInfo__footer div:nth-child(4){
+    border: none;
+}

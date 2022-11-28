@@ -3,10 +3,10 @@ import GeneralContext from "../context/GeneralContext";
 import CoinRow from "../components/CoinRow";
 import "../styles/CoinRow.css";
 
-
 const Watchlist = () => {
-  const { coins, watchlist, setWatchlist } = React.useContext(GeneralContext);
-
+  const { coins, watchlist, setWatchlist, setSearch } =
+    React.useContext(GeneralContext);
+  setSearch("");
   React.useEffect(() => {
     const data = localStorage.getItem("watchlist");
     if (data) {

@@ -17,7 +17,6 @@ export default function CoinSelect({
       onChange={(_, newValue) => {
         setValue(newValue);
         handleSearch(newValue);
-        console.log('cambio el value a :', newValue)
       }}
       inputValue={inputValue}
       onInputChange={(_, newInputValue) => {

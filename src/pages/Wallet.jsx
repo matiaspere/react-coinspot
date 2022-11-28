@@ -16,17 +16,21 @@ const Wallet = () => {
     invested,
     updateBalance,
     history,
+    setSearch,
   } = React.useContext(GeneralContext);
   const [toggle, setToggle] = React.useState(false);
-
+  setSearch("");
   updateBalance();
-  
+
   React.useEffect(() => {
-    updateBalance()
-  }, [history])
+    updateBalance();
+  }, [history]);
 
   let classname = Math.floor(balance) >= Math.floor(invested);
-  let percentage = roundNumber((Math.floor(balance) / Math.floor(invested) * 100), 2);
+  let percentage = roundNumber(
+    (Math.floor(balance) / Math.floor(invested)) * 100,
+    2
+  );
 
   return (
     <div className="Wallet">
@@ -39,7 +43,12 @@ const Wallet = () => {
             </p>
             <div className={classname ? "percentage_up" : "percentage_down"}>
               <img src={classname ? up : down} />
-              <p>{classname ? roundNumber(percentage - 100, 2) : roundNumber(100 - percentage, 2)}%</p>
+              <p>
+                {classname
+                  ? roundNumber(percentage - 100, 2)
+                  : roundNumber(100 - percentage, 2)}
+                %
+              </p>
             </div>
           </div>
           {/* <p className="Wallet__money-p">invested: {invested}</p> */}

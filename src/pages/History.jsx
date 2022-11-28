@@ -4,14 +4,10 @@ import "../styles/CoinRowHolding.css";
 import CoinRowHistory from "../components/CoinRowHistory";
 
 const History = () => {
-  const { history, getLocalStorage, setHistory } = React.useContext(GeneralContext);
-  
-  // React.useEffect(() => {
-  //   const data = getLocalStorage("history");
-  //   if(data){
-  //     setHistory(data);
-  //   }
-  // }, []);
+  const { history, getLocalStorage, setHistory, setSearch } =
+    React.useContext(GeneralContext);
+  setSearch("");
+
   return (
     <div className="Wallet">
       {history.length > 0 ? (

@@ -43,6 +43,9 @@
     border-right: 1px solid rgb(195, 195, 195);
     color: rgb(110, 110, 110);
 }
+.coinRow:hover{
+    background-color: rgb(247, 249, 250);
+}
 .coinRow__favorite{
     cursor: pointer;
 }
@@ -50,6 +53,10 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+.coinRow__image:hover{
+    transform: translateY(-5px);
+    transition: all 0.3s;
 }
 .coinRow__image img{
     width: 35px;

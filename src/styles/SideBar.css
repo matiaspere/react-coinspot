@@ -4,7 +4,7 @@
     flex-direction: column;
     background-color: rgb(23, 26, 27);
     padding: 30px;
-    max-width: 300px;
+    max-width: 250px;
     color: white;
     font-size: 0.8rem;
 }
@@ -36,7 +36,6 @@
     flex-direction: row;
     align-items: center;
     /* color: rgb(140, 140, 147); */
-
     font-weight: 500;
     gap: 15px;
     padding: 10px;
@@ -48,4 +47,7 @@
 .SideBar__link img{
     width: 20px;
     height: 20px;
+}
+.SideBar__link::before{
+    background-color: red;
 }

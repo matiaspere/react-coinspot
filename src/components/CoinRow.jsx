@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/CoinRow.css";
 import starOutlined from "../images/StarOutlined.svg";
 import starFilled from "../images/StarFilled.svg";
@@ -24,9 +25,10 @@ const CoinRow = (props) => {
       setWatchlist(data2);
     }
   }, []);
-  
+
   let exists = watchlist.some((i) => i.name === props.name);
   let image = exists ? starFilled : starOutlined;
+  let route = `/coin/${props.id}`
 
   return (
     <div className="coinRow">
@@ -37,7 +39,9 @@ const CoinRow = (props) => {
       />
       <p>{props.rank}</p>
       <div className="coinRow__image">
-        <img src={props.image} />
+        <Link to={route}>
+          <img src={props.image} />
+        </Link>
       </div>
       <div className="coinRow__name">
         <p>{props.name}</p>
