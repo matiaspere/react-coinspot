@@ -29,7 +29,6 @@ const Main = ({ setPage }) => {
   return (
     <div className="MainMarket">
       <p className="MaiMarket__title">Cryptocurrency Prices by Market Cap</p>
-      {/* <Input /> */}
       <CoinSelect
         totalCoins={totalCoins}
         value={value}
