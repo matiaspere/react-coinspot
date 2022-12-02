@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/react-coinspot/static/css/main.629f8acf.css",
+    "main.js": "/react-coinspot/static/js/main.2e703b45.js",
+    "static/media/logo.png": "/react-coinspot/static/media/logo.6ae6f2356c3a028e22aa.png",
+    "static/media/StarOutlined.svg": "/react-coinspot/static/media/StarOutlined.7a49baaae885d78579a731c1551092f2.svg",
+    "index.html": "/react-coinspot/index.html",
+    "static/media/halfStar.svg": "/react-coinspot/static/media/halfStar.fb33a3a43003d1becbe5f086ad77a8dc.svg",
+    "static/media/logo2.svg": "/react-coinspot/static/media/logo2.b62194b1d72a29639213f36104b77a13.svg",
+    "static/media/history.svg": "/react-coinspot/static/media/history.b2e364f0e0db7406fe975517047aece2.svg",
+    "static/media/money.svg": "/react-coinspot/static/media/money.51d07e4c41f282cb4d7b47a5a74b1a38.svg",
+    "static/media/StarFilled.svg": "/react-coinspot/static/media/StarFilled.1eb8eb7941ee793c6072021d7e375a7e.svg",
+    "static/media/search.svg": "/react-coinspot/static/media/search.d00532326e2a1af28681269d4e116fa8.svg",
+    "static/media/wallet.svg": "/react-coinspot/static/media/wallet.aeea94bfd8b9035bf25b53f6a9450c09.svg",
+    "static/media/close.svg": "/react-coinspot/static/media/close.82dbb64911cc4539e5f65ac0e1f1c02c.svg",
+    "static/media/addWhite.svg": "/react-coinspot/static/media/addWhite.ed14e3dc844a8fc35d10823cab293dac.svg",
+    "static/media/up.svg": "/react-coinspot/static/media/up.7d82611778bf98a532fda880b0c21f8c.svg",
+    "static/media/down.svg": "/react-coinspot/static/media/down.f2ada1cecc1c5d5cab524e16f5c5ef11.svg",
+    "static/media/candles.svg": "/react-coinspot/static/media/candles.a0b14ffb022b46bc8903a191363a1fbf.svg",
+    "static/media/back.svg": "/react-coinspot/static/media/back.f91d3ecac26f92f73c058026143bc776.svg",
+    "main.629f8acf.css.map": "/react-coinspot/static/css/main.629f8acf.css.map",
+    "main.2e703b45.js.map": "/react-coinspot/static/js/main.2e703b45.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.629f8acf.css",
+    "static/js/main.2e703b45.js"
+  ]
+}
